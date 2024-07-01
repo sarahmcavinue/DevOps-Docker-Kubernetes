@@ -1,0 +1,2 @@
+# Ignore virtual environment directory
+.aws_resources/.venv/

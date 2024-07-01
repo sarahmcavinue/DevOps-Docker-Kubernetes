@@ -1,0 +1,17 @@
+
+---
+- name: Update /etc/ansible/hosts with new instances
+  hosts: localhost #manage from localhost
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Append content of a text file to /etc/ansible/hosts
+      blockinfile: # blockinfile module
+        path: /etc/ansible/hosts # path to hosts file
+        block: "{{ lookup('file', 'groups_ip.txt') }}" # content of the file
+        insertafter: EOF # insert after EOF
+        marker: "# {mark} ANSIBLE MANAGED BLOCK"
+        state : present
+        
+```

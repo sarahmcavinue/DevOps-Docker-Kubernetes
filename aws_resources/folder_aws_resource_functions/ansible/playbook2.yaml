@@ -1,0 +1,26 @@
+
+---
+- name: Install and Run Apache2 on a Selected Group  of Hosts
+  hosts: "{{ target_group }}" #manage a target group of hosts
+  become: yes 
+  become_method: sudo 
+  gather_facts: yes # default
+
+  vars_prompt: # prompt for variable
+    - name: target_group # variable name
+      prompt: "Enter the name of the group you wish to to install Apache2"
+      private: no
+
+  tasks:
+    - name: Install Apache2 
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Check Apache2 is running and enabled
+      service:
+        name: apache2
+        state: started
+        enabled: yes # ensure apache2 is enabled on boot
