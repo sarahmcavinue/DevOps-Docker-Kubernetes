@@ -5,7 +5,6 @@ class LambdaHandler:
     def __init__(self, lambda_client):
         self.lambda_client = lambda_client
 
-        #arn:aws:iam::538416905768:role/lambda
         
     def manage_lambda(self):
         while True:
