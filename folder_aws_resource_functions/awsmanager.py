@@ -131,7 +131,7 @@ class AWSManager:
                           MaxCount = 1,
                           InstanceType = 't2.micro',
                           KeyName = 'key_pair',
-                          SubnetId = 'subnet-0e4082758c61767a8',
+                          SubnetId = 'subnet-xxxxxxx',
                          
                       )
                       print("Instance launching. Please wait...")
@@ -149,7 +149,7 @@ class AWSManager:
                         MaxCount = 1,
                         InstanceType = 't2.micro',
                         KeyName = 'key_pair',
-                        SubnetId = 'subnet-0e4082758c61767a8',
+                        SubnetId = 'subnet-xxxxxxx',
                     )
                     print("Instance launching. Please wait...")
                     #using the waiter to wait for the instance to start
